@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Listing Expiration Reminder - Xposure GH{% endblock %}
+
+{% block header_icon %}⏰{% endblock %}
+{% block header_title %}Your Billboard Listing is Expiring Soon{% endblock %}
+
+{% block content %}
+<p>Hi {{ user_name }},</p>
+
+{% if days_remaining == 1 %}
+<p style="color: #dc2626; font-weight: 600;">
+    ⚠️ Your billboard listing expires <strong>tomorrow</strong>! Don't miss out on potential advertising opportunities.
+</p>
+{% else %}
+<p>
+    This is a friendly reminder that your billboard listing will expire in <span class="highlight">{{ days_remaining }} days</span>.
+</p>
+{% endif %}
+
+<div class="details-box">
+    <h3>Listing Details</h3>
+    
+    <div class="detail-row">
+        <span class="detail-label">Billboard:</span>
+        <span class="detail-value">{{ billboard_title }}</span>
+    </div>
+    
+    <div class="detail-row">
+        <span class="detail-label">Location:</span>
+        <span class="detail-value">{{ billboard_location }}</span>
+    </div>
+    
+    <div class="detail-row">
+        <span class="detail-label">Expires On:</span>
+        <span class="detail-value highlight">{{ expiry_date }}</span>
+    </div>
+    
+    <div class="detail-row">
+        <span class="detail-label">Days Remaining:</span>
+        <span class="detail-value" style="color: {% if days_remaining == 1 %}#dc2626{% else %}#ea580c{% endif %}; font-weight: 600;">{{ days_remaining }} day{% if days_remaining != 1 %}s{% endif %}</span>
+    </div>
+</div>
+
+<p><strong>What happens when your listing expires?</strong></p>
+<ul>
+    <li>Your billboard will no longer be visible to advertisers</li>
+    <li>You'll miss out on potential booking inquiries</li>
+    <li>Your spot in search results will be lost</li>
+</ul>
+
+<p><strong>Why renew now?</strong></p>
+<ul>
+    <li>✓ Keep your billboard visible to thousands of potential advertisers</li>
+    <li>✓ Maintain your search ranking and visibility</li>
+    <li>✓ Continue receiving booking inquiries</li>
+    <li>✓ Maximize your billboard's earning potential</li>
+</ul>
+
+<div class="button-center">
+    <a href="{{ renewal_link }}" class="button">Renew Listing Now</a>
+</div>
+
+<div style="text-align: center; margin-top: 20px;">
+    <a href="{{ dashboard_url }}" style="color: #059669; text-decoration: none;">View Dashboard</a>
+</div>
+
+<p class="help-text">
+    <strong>Questions?</strong> Contact our support team at {{ support_email }} and we'll be happy to help!
+</p>
+
+{% if days_remaining == 1 %}
+<div style="background-color: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin-top: 20px; border-radius: 4px;">
+    <p style="margin: 0; color: #92400e; font-size: 14px;">
+        <strong>⏰ Act Fast!</strong> Your listing expires tomorrow. Renew today to avoid any interruption in visibility.
+    </p>
+</div>
+{% endif %}
+
+{% endblock %}

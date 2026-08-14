@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}KYC Verification Update - Xposure GH{% endblock %}
+
+{% block header_icon %}{{ '✅' if approved else '❌' }}{% endblock %}
+{% block header_title %}KYC Verification {{ 'Approved' if approved else 'Requires Attention' }}{% endblock %}
+
+{% block content %}
+<p>Hi {{ user_name }},</p>
+
+{% if approved %}
+<p>Great news! Your KYC verification has been <strong>approved</strong>. 🎉</p>
+
+<p>You can now start listing your billboards on Xposure GH and connect with advertisers across Ghana.</p>
+
+<div class="details-box">
+    <h3>What You Can Do Now</h3>
+    <ul style="padding-left: 20px; margin: 10px 0;">
+        <li>Create and publish billboard listings</li>
+        <li>Set your pricing and availability</li>
+        <li>Receive inquiries from advertisers</li>
+        <li>Manage bookings through your dashboard</li>
+    </ul>
+</div>
+
+<div class="button-center">
+    <a href="{{ dashboard_url }}" class="button">Go to Dashboard</a>
+</div>
+
+<p class="tip-text">
+    💡 <strong>Tip:</strong> Complete listings with high-quality photos and detailed descriptions get 3x more inquiries!
+</p>
+
+{% else %}
+<p>We've reviewed your KYC submission and unfortunately, we need you to resubmit your documents.</p>
+
+<div class="info-box">
+    <strong>Reason for Resubmission:</strong><br>
+    {{ rejection_reason }}
+</div>
+
+<p>Please review the feedback above and resubmit your KYC documents with the required corrections.</p>
+
+<div class="button-center">
+    <a href="{{ kyc_url }}" class="button">Resubmit KYC</a>
+</div>
+
+<p class="help-text">
+    <strong>Need help?</strong> Contact our support team at {{ support_email }} if you have questions about the KYC process.
+</p>
+{% endif %}
+{% endblock %}

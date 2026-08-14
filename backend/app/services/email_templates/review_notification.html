@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}New Review - Xposure GH{% endblock %}
+
+{% block header_title %}⭐ New Review Received!{% endblock %}
+
+{% block content %}
+<p>Hi {{ reviewee_name }},</p>
+
+<p>You've received a new review on Xposure GH for {{ review_context }}!</p>
+
+<div class="review-box">
+    <div class="stars">{{ stars }}</div>
+    <h3 style="margin: 10px 0; color: #111827;">{{ review_title }}</h3>
+    <p style="color: #4b5563; font-style: italic;">"{{ review_comment }}"</p>
+    <p style="font-size: 14px; color: #6b7280; margin-top: 15px;">
+        <strong>From:</strong> {{ reviewer_name }}
+        {% if campaign_name %}
+        <br><strong>Campaign:</strong> {{ campaign_name }}
+        {% endif %}
+    </p>
+</div>
+
+<p>Reviews like this help build trust with potential clients and improve your visibility on our platform!</p>
+
+<div class="button-center">
+    <a href="{{ reviews_url }}" class="button">View All Reviews</a>
+</div>
+
+<p class="tip-text">
+    Keep up the great work! Positive reviews help you attract more business opportunities.
+</p>
+{% endblock %}
