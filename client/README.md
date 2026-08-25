@@ -67,48 +67,6 @@ pnpm dev
 
 ### Step-by-step Guide:
 
-1. **Create Google Cloud Project:**
-   - Visit [Google Cloud Console](https://console.cloud.google.com/)
-   - Click "Select a project" → "New Project"
-   - Name your project (e.g., "Xposure GH Maps")
-   - Click "Create"
-
-2. **Enable Maps JavaScript API:**
-   - In your project, go to "APIs & Services" → "Library"
-   - Search for "Maps JavaScript API"
-   - Click on it and press "Enable"
-
-3. **Create API Key:**
-   - Go to "APIs & Services" → "Credentials"
-   - Click "Create Credentials" → "API Key"
-   - Copy the generated API key
-
-4. **Create Map ID (Required for Advanced Markers):**
-   - Go to "APIs & Services" → "Credentials"
-   - Click "Create Credentials" → "Map ID"
-   - Choose a Map Type (e.g., "Vector")
-   - Give it a name (e.g., "Xposure GH Map")
-   - Copy the generated Map ID
-
-5. **Restrict API Key (Recommended):**
-   - Click on the created API key
-   - Under "Application restrictions", select "HTTP referrers"
-   - Add your domains:
-     ```
-     http://localhost:3000/*
-     https://yourdomain.com/*
-     ```
-   - Under "API restrictions", select "Restrict key"
-   - Choose "Maps JavaScript API"
-   - Click "Save"
-
-6. **Add to Environment:**
-   - Create `.env.local` file in the project root
-   - Add both API key and Map ID:
-     ```
-     NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_api_key_here
-     NEXT_PUBLIC_GOOGLE_MAPS_ID=your_map_id_here
-     ```
 
 ## Project Structure
 
@@ -129,26 +87,6 @@ adtech/
 │   └── data/             # Mock data and utilities
 └── public/               # Static assets
 ```
-
-## Key Components
-
-### MapView Component
-- Interactive Google Maps integration
-- Custom markers for featured billboards
-- Fullscreen mode support
-- Info windows with billboard details
-
-### BillboardCard Component
-- Responsive card layout
-- Featured billboard highlighting
-- Save/bookmark functionality
-- Quick action buttons
-
-### Filters Component
-- Advanced search and filtering
-- Price range slider
-- Featured-only toggle
-- Location and type filters
 
 ## Technologies Used
 
